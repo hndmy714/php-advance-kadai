@@ -11,12 +11,12 @@
 
         // 動的に変わる値をプレースホルダに置き換えたUPDATE文をあらかじめ用意する
         $sql_update = '
-            UPDATE products
+            UPDATE books
             SET book_code = :book_code,
-            book_namee = :book_namee,
+            book_name = :book_name,
             price = :price,
             stock_quantity = :stock_quantity,
-            genre_codede = :vendor_code
+            genre_code = :genre_code
             WHERE id = :id
         ';
         $stmt_update = $pdo->prepare($sql_update);
@@ -120,13 +120,13 @@
                      <input type="number" id="book_code" name="book_code" value="<?= $book['book_code'] ?>" min="0" max="100000000" required>
  
                      <label for="book_name">書籍名</label>
-                     <input type="text" id="book_name" name="book_name" value="<?= $product['book_name'] ?>" maxlength="50" required>
+                     <input type="text" id="book_name" name="book_name" value="<?= $book['book_name'] ?>" maxlength="50" required>
  
                      <label for="price">単価</label>
-                     <input type="number" id="price" name="price" value="<?= $product['price'] ?>" min="0" max="100000000" required>
+                     <input type="number" id="price" name="price" value="<?= $book['price'] ?>" min="0" max="100000000" required>
  
                      <label for="stock_quantity">在庫数</label>
-                     <input type="number" id="stock_quantity" name="stock_quantity" value="<?= $product['stock_quantity'] ?>" min="0" max="100000000" required>
+                     <input type="number" id="stock_quantity" name="stock_quantity" value="<?= $book['stock_quantity'] ?>" min="0" max="100000000" required>
  
                      <label for="genre_code">ジャンルコード</label>
                      <select id="genre_code" name="genre_code" required>
